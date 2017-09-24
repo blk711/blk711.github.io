@@ -289,20 +289,14 @@
 
       
         
-          
-            <h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><blockquote>
-<p>使用构造方法来创建bean的时候，Spring对class没有特殊的要求。<br>也就是说，正在开发的类不需要实现任何特定的接口或者以特定的方式进行编码。<br>但是，根据你使用那种类型的IoC来指定bean，你可能需要一个默认（空参）的构造方法。</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exampleBean"</span> <span class="attr">class</span>=<span class="string">"examples.ExampleBean"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.Car"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Instantiation with a constructor."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>###静态工厂方法</p>
-<blockquote>
-<p>当使用静态工厂方法实例化bean的时候，除了需要指定bean-factory的class以外，还需要通过factory-method属性来指定创建bean的方法。Spring将调用此方法返回实例对象，除此以外和通过普通构造器实例化bean没什么两样。</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"phone"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.PhoneFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createPhone"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhoneFactory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Phone();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <p>bean定义基本上就是用来创建一个或多个对象的配方，当需要一个bean的时候，容器查看配方并且根据bean定义封装的配置元数据创建（或获取）一个实际的对象。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/24/Bean的四种实例化方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
