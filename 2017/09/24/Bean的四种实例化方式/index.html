@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="Casa">
 <meta property="og:description" content="bean定义基本上就是用来创建一个或多个对象的配方，当需要一个bean的时候，容器查看配方并且根据bean定义封装的配置元数据创建（或获取）一个实际的对象。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-24T12:54:40.887Z">
+<meta property="og:updated_time" content="2017-09-24T13:01:44.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bean的四种实例化方式">
 <meta name="twitter:description" content="bean定义基本上就是用来创建一个或多个对象的配方，当需要一个bean的时候，容器查看配方并且根据bean定义封装的配置元数据创建（或获取）一个实际的对象。">
@@ -268,7 +268,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-24T20:54:40+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-09-24T21:01:44+08:00">
                 2017-09-24
               </time>
             
@@ -317,10 +317,10 @@
 <h3 id="实例工厂方法"><a href="#实例工厂方法" class="headerlink" title="实例工厂方法"></a>实例工厂方法</h3><blockquote>
 <p>与通过静态工厂方法实例化类似，是通过调用工厂实例的非静态方法进行实例化。 使用这种方式时，class属性必须为空，而factory-bean属性必须指定为当前(或其祖先)容器中包含实例工厂方法的bean的名称，而该工厂bean的工厂方法本身必须通过factory-method属性来设定。</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computerFactory"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.ComputerFactory"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createComputer"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computerFactory"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.ComputerFactory"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createComputer"</span>/&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerFactory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Computer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>​    一个工厂类也可以有多个工厂方法，如下代码所示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 一个工厂 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computerFactory"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.ComputerFactory"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 多个工厂方法实例化多个bean --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createComputer"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mac"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createMac"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"surface"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createSurface"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 一个工厂 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computerFactory"</span> <span class="attr">class</span>=<span class="string">"com.liu.instantiation.ComputerFactory"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 多个工厂方法实例化多个bean --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createComputer"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mac"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createMac"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"surface"</span> <span class="attr">factory-bean</span>=<span class="string">"computerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"createSurface"</span>/&gt;</span></div></pre></td></tr></table></figure>
 <p>这种做法表明工厂bean本身也可以通过依赖注入<code>DI</code>进行管理配置。</p>
 
       
@@ -392,6 +392,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/25/Bean的作用域/" rel="prev" title="Bean的作用域">
+                Bean的作用域 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -467,7 +471,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
